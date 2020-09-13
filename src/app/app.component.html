@@ -1,0 +1,41 @@
+<div class="container  mt-5 mb-5 p-4 border border-warning rounded" style=" background-color: #2d2d2d;">
+  <div class="row p-3">
+    <h1 class="col-md-12 insetshadow xx">Password Generator</h1>
+  </div>
+  <div class="form-group row">
+    <label>Enter Length</label>
+    <!--[value]="getPassword()-->
+    <input class="form-control mr-3 ml-3" placeholder="Enter length" (input)="onchangeLength($event.target.value)" />
+  </div>
+
+  <div class="form-check p-2">
+    <input class="form-check-input" (change)="onChangeUseLetters()" type="checkbox" />
+    <label class="form-check-label">Use Letters</label>
+
+  </div>
+
+  <div class="form-check p-2">
+
+    <input class="form-check-input" (change)="onChangeUseNumbers()" type="checkbox" />
+    <label class="form-check-label">Use Numbers</label>
+  </div>
+
+  <div class="form-check p-2">
+    <input class="form-check-input" (change)="onChangeUseSymbols()" type="checkbox" />
+    <label class="form-check-label">Use Symbols</label>
+
+  </div>
+
+  <div class="pt-1 pb-1">
+    <button [disabled]="!(disAblebuttons())" class=" col-md-4 rounded btn-warning"
+      (click)="onButtonClick()">Generate!</button>
+  </div>
+
+  <div class="form-group" *ngIf="getPassword()">
+    <label>Your Password</label>
+    <!--<h1>{{Password}}</h1>-->
+    <p class="col-md-12 badge-light rounded  text-center" style="height: 35px;font-weight: bold;color:#374567">
+      {{getPassword()}}</p>
+  </div>
+
+</div>
